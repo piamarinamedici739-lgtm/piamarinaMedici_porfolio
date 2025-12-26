@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pia Marina Medici - Thesis Project</title>
+    <style>
+        /*
+        ----------------------------------------------------
+        -- SHARED STYLES
+        ----------------------------------------------------
+        */
+        :root {
+            --color-black: #121212;
+            --color-white: #f5f5f5;
+            --color-green: #4CAF50; 
+            --color-gray-dark: #333;
+            --color-gray-light: #aaa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+        }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px 0; }
+
+        h1, h2, h3 { color: var(--color-white); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        h1 { font-size: 2.8em; margin-top: 20px; color: var(--color-green); text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 40px; text-align: center; border-bottom: 2px solid var(--color-gray-dark); padding-bottom: 5px; }
+
+        a { color: var(--color-green); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--color-white); }
+        
+        /* Breadcrumb */
+        .page-directory { padding: 15px 0; background-color: var(--color-black); border-bottom: 1px solid var(--color-gray-dark); font-size: 0.9em; }
+        .page-directory a { color: var(--color-gray-light); }
+        .page-directory a:hover { color: var(--color-green); }
+        .page-directory span { color: var(--color-green); margin: 0 5px; }
+
+        /* Accordion Cards */
+        .project-card-list { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .project-card { background-color: var(--color-gray-dark); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; }
+        .project-title-bar { padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background-color: #444; transition: background-color 0.2s ease; }
+        .project-title-bar:hover { background-color: #555; }
+        .project-title-bar.highlight { background-color: var(--color-green); }
+        .project-title-bar.highlight h3 { color: var(--color-black); font-weight: bold; }
+        .project-title-bar h3 { margin: 0; font-size: 1.3em; color: var(--color-white); }
+        .toggle-icon { font-size: 1.5em; line-height: 1; }
+        
+        .project-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; padding: 0 25px; }
+        .project-content.active { max-height: 20000px; padding: 20px 25px; } 
+
+        .project-content p { margin-bottom: 15px; text-align: justify; }
+        .project-content h4 { color: var(--color-green); text-transform: uppercase; margin-top: 30px; margin-bottom: 15px; font-size: 1.1em; letter-spacing: 1px; border-top: 1px solid #444; padding-top: 15px; }
+        .project-content h4:first-of-type { border-top: none; padding-top: 0; margin-top: 0;}
+        .project-content ul { list-style: disc; padding-left: 30px; margin-bottom: 20px; }
+        .project-content ul li { margin-bottom: 8px; }
+
+        /* ----------------------------------------------------
+        -- THESIS SPECIFIC STYLES
+        ---------------------------------------------------- */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tech-badge { background: #222; color: var(--color-white); padding: 8px 15px; border-radius: 20px; font-size: 0.9em; border: 1px solid var(--color-green); }
+
+        /* Single Column for Bigger Images */
+        .diagram-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* Full width column */
+            gap: 40px; 
+            margin-top: 20px; 
+        }
+        .diagram-item { background: #222; padding: 20px; border-radius: 8px; text-align: center; }
+        
+        /* Updated Image Styles for Visibility */
+        .diagram-item img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
+            border: 2px solid #444; 
+            transition: transform 0.3s ease; 
+        }
+        .diagram-item img:hover { border-color: var(--color-green); }
+        
+        .diagram-label { margin-top: 15px; color: var(--color-green); font-weight: bold; font-size: 1.1em; letter-spacing: 1px; }
+
+        .media-showcase { margin: 30px 0; text-align: center; }
+        .media-showcase video, .media-showcase img.certificate { width: 100%; max-width: 800px; border-radius: 8px; border: 3px solid #444; }
+        .media-caption { margin-top: 10px; color: var(--color-gray-light); font-style: italic; font-size: 0.9em; }
+
+        /* Viewer Frame */
+        .embed-viewer { margin: 20px 0 30px 0; border: 2px solid var(--color-green); border-radius: 8px; overflow: hidden; background-color: #fff; }
+        .embed-viewer iframe { width: 100%; height: 800px; border: none; }
+
+        footer { text-align: center; padding: 20px 0; border-top: 1px solid var(--color-gray-dark); font-size: 0.9em; color: var(--color-gray-light); margin-top: 50px; }
+        @media (max-width: 768px) { h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+
+    <nav class="page-directory container">
+        <a href="index.html">Home</a> <span>/</span> Thesis Project: MandaCare
+    </nav>
+
+    <div class="container">
+        <header>
+            <p style="color: var(--color-green); letter-spacing: 2px;">Capstone Project 2025</p>
+            <h1>MandaCare Complaint Analysis System</h1>
+            <p>An intelligent system for the City Health Department of Mandaluyong City.</p>
+        </header>
+
+        <section>
+            <h2>Project Details & Documentation</h2>
+            <div class="project-card-list">
+
+                <div class="project-card">
+                    <div class="project-title-bar highlight" data-project="1">
+                        <h3>1. Overview, Objectives & Tech Stack</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-1">
+                        <h4>Abstract & Overview</h4>
+                        <p>
+                            MandaCare is a web-based complaint analysis system developed for the <strong>Mandaluyong City Health Department (CHD)</strong> to automate the processing, categorization, and prioritization of citizen complaints. In an era where digital technology is pivotal for public service efficiency, MandaCare addresses the limitations of outdated feedback mechanisms by integrating <strong>Natural Language Processing (NLP)</strong>, <strong>Machine Learning</strong>, and <strong>Prescriptive Analytics</strong>.
+                        </p>
+                        <p>
+                            The system was designed to assist the <strong>Public Information Office (PIO)</strong> in consolidating complaints. It transforms unstructured complaint text into actionable insights, detects urgency through Sentiment Analysis, and generates solution-oriented recommendations to improve the overall quality of public health services.
+                        </p>
+
+                        <h4>Key Objectives</h4>
+                        <ul>
+                            <li><strong>Automated Categorization:</strong> To apply sentiment analysis and clustering techniques to categorize and prioritize complaints effectively.</li>
+                            <li><strong>Prescriptive Analytics:</strong> To integrate analytics that generate solution-oriented recommendations (prescriptions) based on the category and priority of the complaint.</li>
+                            <li><strong>Reporting & Dashboards:</strong> To provide a comprehensive dashboard for administrators to view trends, monitor statistics, and export detailed reports for official documentation.</li>
+                        </ul>
+
+                        <h4>Methodology & Algorithms</h4>
+                        <p>
+                            The development followed a Modified Waterfall SDLC. The core intelligence of the system relies on advanced data processing:
+                        </p>
+                        <ul>
+                            <li><strong>Unsupervised Clustering:</strong> Used to identify fifteen (15) validated complaint categories from raw data.</li>
+                            <li><strong>Supervised Learning:</strong> Four models were evaluated (Logistic Regression, Random Forest, SVM, and Ensemble). The <strong>Ensemble model</strong> was selected for deployment due to its balanced and reliable performance.</li>
+                            <li><strong>Sentiment Analysis:</strong> A fine-tuned multilingual model is used to determine the urgency of complaints, supporting automated priority assignment.</li>
+                            <li><strong>Prescriptive Engine:</strong> Automates the suggestion of courses of action based on a predefined prescription table derived from the complaint category and priority level.</li>
+                        </ul>
+
+                        <h4>Evaluation Results</h4>
+                        <p>
+                            The system was evaluated using the <strong>ISO 25010:2023</strong> quality standard. It yielded strong results for both citizen and administrative access, with high ratings in <strong>Functional Suitability, Reliability, Security, Interaction Capability, and Flexibility</strong>. The evaluation confirmed that MandaCare is an effective, scalable, and secure solution for improving transparency and responsiveness in public health complaint management.
+                        </p>
+                        
+                        <h4>Tech Stack</h4>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python (NLP/ML)</span>
+                            <span class="tech-badge">Ensemble Learning</span>
+                            <span class="tech-badge">Sentiment Analysis</span>
+                            <span class="tech-badge">Prescriptive Analytics</span>
+							<span class="tech-badge">Laravel Framework / Bootstrap Framework</span>
+                            <span class="tech-badge">HTML5 / CSS / JS</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title-bar" data-project="2">
+                        <h3>2. System Architecture & Diagrams</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-2">
+                        <div class="diagram-grid">
+                            
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1iWvPQBYYJRTjXFru4bKWPelyKt6Pw9Aj&sz=w1200" alt="Conceptual Framework">
+                                <div class="diagram-label">Conceptual Framework</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1r9lRFDjGvdxor23WquOEb5alrP8zsgyV&sz=w1200" alt="Citizen Flowchart">
+                                <div class="diagram-label">Citizen User Flow</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1yWlS0DfRKyFPnECnBjMVLs-9QkWdmQwY&sz=w1200" alt="Barangay & CHD Flowchart">
+                                <div class="diagram-label">Barangay & CHD Flow</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1TLIcud5Jwhm7X6-BmsxNyGp80OZ3Eop0&sz=w1200" alt="Admin Flowchart">
+                                <div class="diagram-label">Super & PIO Admin Flow</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1J_uw7QwQghMB4ZZWJ8OdfCfvN2d8CqEH&sz=w1200" alt="1st-level DFD">
+                                <div class="diagram-label">1st-level Data Flow Diagram</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1G5Y9CID8gvgaOZ4tM5omxAJ6gtIEMSjI&sz=w1200" alt="2nd-level DFD">
+                                <div class="diagram-label">2nd-level Data Flow Diagram</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=1BN-zjbz3QqS79C4dMsjfHPR-UlKfifNt&sz=w1200" alt="3rd-level DFD">
+                                <div class="diagram-label">3rd-level Data Flow Diagram</div>
+                            </div>
+
+                            <div class="diagram-item">
+                                <img src="https://drive.google.com/thumbnail?id=13xarM0X9V5QKLLlb2Z3r3QjtEN4UoZ7U&sz=w1200" alt="Entity Relationship Diagram">
+                                <div class="diagram-label">Entity Relationship Diagram (ERD)</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title-bar" data-project="3">
+                        <h3>3. Demo, Manuals & Turnover</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-3">
+                        
+                        <h4>Website Walkthrough Demo</h4>
+                        <div class="media-showcase">
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 3px solid #444;">
+                                <iframe 
+                                    src="https://drive.google.com/file/d/1qiFkUH_q1CQOZhbVCMR-8XlVhuUdbcgY/preview" 
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                                    allow="autoplay">
+                                </iframe>
+                            </div>
+                            <p class="media-caption">High-level walkthrough of the system capabilities.</p>
+                        </div>
+
+                        <h4>Certificate of Turnover</h4>
+                        <div class="media-showcase">
+                            <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; border: 3px solid #444;">
+                                <iframe 
+                                    src="https://drive.google.com/file/d/1NbuIWjXOU1Sz1i6sJrpneCs2VsJYj2EF/preview" 
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                </iframe>
+                            </div>
+                            <p class="media-caption">Official turnover of the system.</p>
+                        </div>
+
+                        <h4>User Manual Document</h4>
+                        <p>General guide for end-users of the MandaCare system.</p>
+                        <div class="embed-viewer">
+                            <iframe src="https://docs.google.com/document/d/1uopTRAdwO9Jy1fD-Y2OYv8noI8U453Sd/preview" frameborder="0"></iframe>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <a href="https://docs.google.com/document/d/1uopTRAdwO9Jy1fD-Y2OYv8noI8U453Sd/view" target="_blank" style="font-size: 0.9em; text-decoration: underline;">Open Google Doc in new tab</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pia Marina Medici.</p>
+			<p>
+                Connect: 
+                <a href="mailto:youremail@example.com">Email</a> | 
+                <a href="https://www.linkedin.com/in/pia-marina-medici-a86443399" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/piamarinamedici739-lgtm" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.project-title-bar');
+            titles.forEach(title => {
+                title.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const content = document.getElementById(`project-${projectId}`);
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    document.querySelectorAll('.project-content.active').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('active');
+                            openContent.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+                        }
+                    });
+
+                    content.classList.toggle('active');
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '-';
+                        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        icon.textContent = '+';
+                    }
+                });
+            });
+            const firstProject = document.querySelector('.project-title-bar.highlight');
+            if(firstProject) firstProject.click();
+        });
+    </script>
+</body>
+</html>
