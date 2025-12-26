@@ -51,7 +51,7 @@ The centerpiece of this portfolio is **MandaCare**, a Complaint Analysis System 
 ├── index.html        # Main landing page
 ├── thesis.html       # Detailed documentation for MandaCare project
 ├── thesis.css        # Custom styling for the thesis page (Dark Mode)
-└── assets/           # Images, diagrams, and media files
+
 
 ```
 
