@@ -1,90 +1,88 @@
-# piamarinaMedici_porfolio
-# MandaCare: Intelligent Complaint Analysis System
-### Capstone Project 2025 | Mandaluyong City Health Department
+This README is designed for the **GitHub repository that hosts your portfolio website code** (the HTML/CSS/JS files).
 
-![Status](https://img.shields.io/badge/Status-Completed-success)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Laravel](https://img.shields.io/badge/Laravel-Framework-red)
-![ML](https://img.shields.io/badge/AI-NLP%20%26%20ML-orange)
+It explains **who you are**, **what the website is**, and highlights your **Tech Stack** and my flagship **Thesis Project**.
 
-## 📖 Overview
+---
 
-**MandaCare** is a web-based complaint analysis system developed for the **Mandaluyong City Health Department (CHD)**. It automates the processing, categorization, and prioritization of citizen complaints to assist the Public Information Office (PIO).
+#  Pia Marina Medici | Academic & Technical Portfolio
 
-In an era where digital technology is pivotal for public service efficiency, MandaCare addresses the limitations of outdated feedback mechanisms by integrating **Natural Language Processing (NLP)**, **Machine Learning**, and **Prescriptive Analytics**.
+Welcome to the source code of my personal portfolio website. This project serves as a digital hub to showcase my academic milestones, technical capabilities, and my 2025 Capstone Project.
 
-## 🚀 Key Features
+The website is built with a focus on clean, semantic HTML, responsive CSS (utilizing CSS Variables and Grid/Flexbox), and vanilla JavaScript for interactive DOM manipulation.
 
-* **Automated Categorization:** Utilizes unsupervised clustering to sort complaints into 15 validated categories.
-* **Urgency Detection:** Applies a fine-tuned multilingual Sentiment Analysis model to determine the urgency of a complaint and assign priority automatically.
-* **Prescriptive Analytics:** An intelligent engine that generates solution-oriented recommendations (prescriptions) based on the specific category and priority level of the issue.
-* **Admin Dashboard:** A comprehensive interface for administrators to view trends, monitor real-time statistics, and export detailed reports for official documentation.
+##  About Me
 
-## 🛠️ Tech Stack
+I am a graduating IT student specializing in **Data Science** and **Full Stack Development**. My work bridges the gap between complex Machine Learning algorithms and user-friendly web applications, specifically within the context of Public Health governance.
 
-**Machine Learning & NLP (Backend)**
-* **Language:** Python
-* **Framework:** Flask
-* **Techniques:** Ensemble Learning (Selected over Logistic Regression, Random Forest, and SVM), Unsupervised Clustering, Sentiment Analysis.
+##  Featured Project: MandaCare
 
-**Web Development**
-* **Framework:** Laravel (PHP)
+The centerpiece of this portfolio is **MandaCare**, a Complaint Analysis System developed for the **Mandaluyong City Health Department (CHD)**.
+
+**Project Highlights:**
+
+* **Goal:** Automate the categorization and prioritization of citizen complaints using AI.
+* **Core Tech:** NLP (Natural Language Processing), Ensemble Machine Learning, and Prescriptive Analytics.
+* **Impact:** Replaces outdated manual feedback mechanisms with a data-driven dashboard for the Public Information Office.
+
+> *You can view the full public documentation, system architecture, and demo videos within the `Thesis Project` section of this website.*
+
+##  Technical Skills
+
+### Web Development
+
 * **Frontend:** HTML5, CSS3, JavaScript, Bootstrap
+* **Backend:** PHP (Laravel Framework)
+* **API:** Flask (Python)
+
+### Data Science & Machine Learning
+
+* **Languages:** Python
+* **Libraries:** Pandas, Scikit-learn, NLTK
+* **Techniques:** Unsupervised Clustering, Sentiment Analysis, Supervised Learning (Ensemble Models).
+
+### Tools & Database
+
 * **Database:** MySQL
+* **Version Control:** Git / GitHub
 
-## 🧠 Methodology & Algorithms
+##  Repository Structure
 
-The development followed a **Modified Waterfall SDLC**. The core intelligence of the system relies on advanced data processing:
+```bash
+├── index.html        # Main landing page
+├── thesis.html       # Detailed documentation for MandaCare project
+├── thesis.css        # Custom styling for the thesis page (Dark Mode)
+└── assets/           # Images, diagrams, and media files
 
-1.  **Clustering:** Used to identify distinct complaint categories from raw, unstructured text.
-2.  **Supervised Learning:** After evaluating four models, the **Ensemble Model** was deployed for its balanced and reliable performance in classifying new complaints.
-3.  **Prescription:** A lookup-based prescriptive logic derived from historical data to suggest immediate courses of action.
+```
 
-## 📊 System Architecture
+##  How to Run Locally
 
-The system is designed to handle data flow between Citizens, the Barangay, and the City Health Department.
+Since this portfolio consists of static web pages, no server setup is required to view the design.
 
-* **User Flow:** Citizens submit unstructured complaints → System analyzes text → System routes to dashboard with priority tags.
-* **Evaluation:** The system was evaluated using **ISO 25010:2023**, receiving high ratings for Functional Suitability, Reliability, Security, and Interaction Capability.
+1. **Clone the repository:**
+```bash
+git clone https://github.com/piamarinamedici739-lgtm/portfolio.git
 
-## 📦 Installation & Setup
+```
 
-_Note: This project requires both a Python environment (for ML) and a PHP environment (for the Web App)._
 
-### Prerequisites
-* Python 3.8+
-* PHP 8.x / Composer
-* MySQL
+2. **Navigate to the folder:**
+```bash
+cd portfolio
 
-### Steps
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/piamarinamedici739-lgtm/mandacare.git](https://github.com/piamarinamedici739-lgtm/mandacare.git)
-    ```
+```
 
-2.  **Setup Python (ML Service)**
-    ```bash
-    cd ml-service
-    pip install -r requirements.txt
-    python app.py
-    ```
 
-3.  **Setup Laravel (Web App)**
-    ```bash
-    cd web-app
-    composer install
-    cp .env.example .env
-    php artisan key:generate
-    php artisan migrate
-    php artisan serve
-    ```
+3. **Launch:**
+Open `index.html` or `thesis.html` directly in your preferred web browser.
 
-## 📄 License
+## cS Contact
 
-This project is a Capstone requirement and is the intellectual property of **Pia Marina Medici//IntelligenZ Group** and the **Mandaluyong City Health Department**.
+Feel free to reach out for collaboration or inquiries regarding my research.
 
-## 👩‍💻 Author
+* **LinkedIn:** [Pia Marina Medici](https://www.linkedin.com/in/pia-marina-medici-a86443399)
+* **Email:** [Your Email Here]
 
-**Pia Marina Medici**
-* **Role:** Lead Machine Learning and UI/UX Developer / Researcher
-* **Connect:** [LinkedIn](https://www.linkedin.com/in/pia-marina-medici-a86443399)
+---
+
+*© 2025 Pia Marina Medici. All Rights Reserved.*
