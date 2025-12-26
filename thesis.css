@@ -1,0 +1,253 @@
+:root {
+    --color-black: #121212;
+    --color-white: #f5f5f5;
+    --color-green: #4CAF50; 
+    --color-gray-dark: #333;
+    --color-gray-light: #aaa;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px 0; 
+}
+
+/* ----------------------------------------------------
+-- TYPOGRAPHY
+---------------------------------------------------- */
+h1, h2, h3 { 
+    color: var(--color-white); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    margin-bottom: 20px; 
+}
+
+h1 { 
+    font-size: 2.8em; 
+    margin-top: 20px; 
+    color: var(--color-green); 
+    text-align: center; 
+}
+
+h2 { 
+    font-size: 1.8em; 
+    margin-top: 40px; 
+    text-align: center; 
+    border-bottom: 2px solid var(--color-gray-dark); 
+    padding-bottom: 5px; 
+}
+
+a { 
+    color: var(--color-green); 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+a:hover { 
+    color: var(--color-white); 
+}
+
+/* ----------------------------------------------------
+-- BREADCRUMB NAVIGATION
+---------------------------------------------------- */
+.page-directory { 
+    padding: 15px 0; 
+    background-color: var(--color-black); 
+    border-bottom: 1px solid var(--color-gray-dark); 
+    font-size: 0.9em; 
+}
+.page-directory a { color: var(--color-gray-light); }
+.page-directory a:hover { color: var(--color-green); }
+.page-directory span { color: var(--color-green); margin: 0 5px; }
+
+/* ----------------------------------------------------
+-- PROJECT CARD / ACCORDION STYLES
+---------------------------------------------------- */
+.project-card-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 30px; 
+}
+
+.project-card { 
+    background-color: var(--color-gray-dark); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    transition: all 0.3s ease; 
+}
+
+.project-title-bar { 
+    padding: 20px 25px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    cursor: pointer; 
+    background-color: #444; 
+    transition: background-color 0.2s ease; 
+}
+
+.project-title-bar:hover { background-color: #555; }
+.project-title-bar.highlight { background-color: var(--color-green); }
+.project-title-bar.highlight h3 { color: var(--color-black); font-weight: bold; }
+.project-title-bar h3 { margin: 0; font-size: 1.3em; color: var(--color-white); }
+
+.toggle-icon { font-size: 1.5em; line-height: 1; }
+
+.project-content { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.5s ease-in-out; 
+    padding: 0 25px; 
+}
+
+.project-content.active { 
+    max-height: 20000px; /* Large max-height to accommodate long diagrams */
+    padding: 20px 25px; 
+} 
+
+.project-content p { margin-bottom: 15px; text-align: justify; }
+
+.project-content h4 { 
+    color: var(--color-green); 
+    text-transform: uppercase; 
+    margin-top: 30px; 
+    margin-bottom: 15px; 
+    font-size: 1.1em; 
+    letter-spacing: 1px; 
+    border-top: 1px solid #444; 
+    padding-top: 15px; 
+}
+
+.project-content h4:first-of-type { 
+    border-top: none; 
+    padding-top: 0; 
+    margin-top: 0;
+}
+
+.project-content ul { 
+    list-style: disc; 
+    padding-left: 30px; 
+    margin-bottom: 20px; 
+}
+
+.project-content ul li { margin-bottom: 8px; }
+
+/* ----------------------------------------------------
+-- THESIS SPECIFIC STYLES
+---------------------------------------------------- */
+.tech-stack { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+
+.tech-badge { 
+    background: #222; 
+    color: var(--color-white); 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    font-size: 0.9em; 
+    border: 1px solid var(--color-green); 
+}
+
+/* Diagram Grid */
+.diagram-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; /* Full width column */
+    gap: 40px; 
+    margin-top: 20px; 
+}
+
+.diagram-item { 
+    background: #222; 
+    padding: 20px; 
+    border-radius: 8px; 
+    text-align: center; 
+}
+
+.diagram-item img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px; 
+    border: 2px solid #444; 
+    transition: transform 0.3s ease; 
+}
+
+.diagram-item img:hover { border-color: var(--color-green); }
+
+.diagram-label { 
+    margin-top: 15px; 
+    color: var(--color-green); 
+    font-weight: bold; 
+    font-size: 1.1em; 
+    letter-spacing: 1px; 
+}
+
+/* Media (Video/Certificates) */
+.media-showcase { 
+    margin: 30px 0; 
+    text-align: center; 
+}
+
+.media-showcase video, 
+.media-showcase img.certificate { 
+    width: 100%; 
+    max-width: 800px; 
+    border-radius: 8px; 
+    border: 3px solid #444; 
+}
+
+.media-caption { 
+    margin-top: 10px; 
+    color: var(--color-gray-light); 
+    font-style: italic; 
+    font-size: 0.9em; 
+}
+
+/* Document Viewer Frame */
+.embed-viewer { 
+    margin: 20px 0 30px 0; 
+    border: 2px solid var(--color-green); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background-color: #fff; 
+}
+
+.embed-viewer iframe { 
+    width: 100%; 
+    height: 800px; 
+    border: none; 
+}
+
+/* ----------------------------------------------------
+-- FOOTER & RESPONSIVE
+---------------------------------------------------- */
+footer { 
+    text-align: center; 
+    padding: 20px 0; 
+    border-top: 1px solid var(--color-gray-dark); 
+    font-size: 0.9em; 
+    color: var(--color-gray-light); 
+    margin-top: 50px; 
+}
+
+@media (max-width: 768px) { 
+    h1 { font-size: 2em; } 
+}

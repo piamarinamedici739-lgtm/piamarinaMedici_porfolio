@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pia Marina Medici - UI/UX Portfolio</title>
+    <link rel="stylesheet" href="figma.css">
+</head>
+<body>
+
+    <nav class="page-directory container">
+        <a href="index.html">Home</a> <span>/</span> Figma & UI/UX Prototyping
+    </nav>
+
+    <div class="container">
+        
+        <header class="hero-section">
+            <p style="color: var(--color-green); letter-spacing: 2px;">Design Process & Interaction</p>
+            <h1>Figma Prototyping Projects</h1>
+            <p>From wireframes to interactive high-fidelity products.</p>
+
+            <div class="section-header" style="border-top:none; text-align: center;">Mobile UI Design Evolution</div>
+             
+             <div class="process-grid">
+                 <div class="process-item">
+                     <div class="device-phone">
+                         <img src="https://drive.google.com/thumbnail?id=1N1hdAtzvHc_14sExWYU4lKwOnRwLIUKg&sz=w1000" alt="Low Fidelity Wireframe">
+                     </div>
+                     <div class="process-info">
+                         <h5>Low Fidelity</h5>
+                         <p class="desc">Wireframing: Establishing layout hierarchy and button accessibility.</p>
+                     </div>
+                 </div>
+
+                 <div class="process-item">
+                     <div class="device-phone">
+                         <img src="https://drive.google.com/thumbnail?id=1p-Kg6XGoHmDrcU8-5HRhv84S4QclNzWM&sz=w1000" alt="Mid Fidelity Design">
+                     </div>
+                     <div class="process-info">
+                         <h5>Mid Fidelity</h5>
+                         <p class="desc">Structuring: Defining calendars and ensuring touch target sizes.</p>
+                     </div>
+                 </div>
+
+                 <div class="process-item">
+                     <div class="device-phone">
+                         <img src="https://drive.google.com/thumbnail?id=1zN3ow07T9E0DHEh4ikVdJWrARgIDVGFb&sz=w1000" alt="High Fidelity UI">
+                     </div>
+                     <div class="process-info">
+                         <h5>High Fidelity</h5>
+                         <p class="desc">Polishing: Incorporating branding colors and dashboard status updates.</p>
+                     </div>
+                 </div>
+             </div>
+        </header>
+
+
+        <section>
+            <h2>Project Gallery</h2>
+            <div class="project-card-list">
+
+                <div class="project-card">
+                    <div class="project-title-bar highlight" data-project="1">
+                        <h3>RoomEase: Smart Reservation System</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-1">
+                        
+                        <div class="section-header">Project Overview & Scenario</div>
+                        <p>
+                            <strong>Role:</strong> Lead UI/UX Designer &nbsp;|&nbsp; 
+                            <strong>Client:</strong> Jose Rizal University (Concept)
+                        </p>
+                        <p>
+                            <strong>The Real-Life Problem:</strong> In a busy university setting, booking a laboratory or lecture hall is often a logistical nightmare. Faculty members frequently face double-booking conflicts, students wander around looking for available study spaces, and the administrative staff relies on manual logbooks that are prone to errors.
+                        </p>
+                        <p>
+                            <strong>The Smart Solution:</strong> RoomEase digitizes this entire process. It provides real-time visibility of room availability, allowing users to book instantly from their devices. It eliminates schedule conflicts through an automated approval system.
+                        </p>
+
+                        <div class="section-header">Interactive App Demo</div>
+                        <p style="font-size: 0.9em; color: #aaa; margin-bottom: 20px;">
+                            Experience the fully functional prototype on both desktop and mobile views.
+                        </p>
+                        
+                        <div class="showcase-container">
+                            <div class="device-laptop">
+                                <iframe src="https://drive.google.com/file/d/11D58u1YlOIErK4wyqyZLd7pRo_ksJa-b/preview" allow="autoplay"></iframe>
+                            </div>
+
+                            <div class="device-phone">
+                                <iframe src="https://drive.google.com/file/d/1YQmyTBjeV09PIZ_6EOkLrt3VRqOLMllg/preview" allow="autoplay"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="section-header">System Demo & Recognition</div>
+                        <div class="pitching-grid">
+                            <div class="pitching-video">
+                                <iframe src="https://drive.google.com/file/d/1Vx3A-UzYfPniY1K7RsnGBrGqujVzVMdq/preview" allow="autoplay"></iframe>
+                            </div>
+                            <div class="pitching-photo">
+                                <img src="https://drive.google.com/thumbnail?id=1SyeAdnBvbEVBMb5SVMK0rxy8-UT31npx&sz=w1000" alt="Winning Team Photo">
+                                <div class="award-badge">
+                                    🏆 2nd Place - CSE Video Pitching
+                                </div>
+                                <p style="margin-top: 15px; color: #ccc;">
+                                    Our team secured 2nd Place in the entire College of Computer Studies and Engineering (CSE) Department Video Pitching Competition.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pia Marina Medici. </p>
+            <p>
+                Connect: 
+                <a href="mailto:youremail@example.com">Email</a> | 
+                <a href="https://www.linkedin.com/in/pia-marina-medici-a86443399" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/piamarinamedici739-lgtm" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.project-title-bar');
+            
+            titles.forEach(title => {
+                title.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const content = document.getElementById(`project-${projectId}`);
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    document.querySelectorAll('.project-content.active').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('active');
+                            openContent.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+                            openContent.previousElementSibling.classList.remove('highlight');
+                        }
+                    });
+
+                    content.classList.toggle('active');
+                    this.classList.toggle('highlight');
+                    
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '-';
+                        setTimeout(() => {
+                             this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    } else {
+                        icon.textContent = '+';
+                    }
+                });
+            });
+
+            // Open first project by default
+            const firstProject = document.querySelector('.project-title-bar.highlight');
+            if(firstProject) firstProject.click();
+        });
+    </script>
+</body>
+</html>

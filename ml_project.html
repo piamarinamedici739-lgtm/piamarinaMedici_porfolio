@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pia Marina Medici - Machine Learning Portfolio</title>
+    
+    <link rel="stylesheet" href="ml_project.css">
+</head>
+<body>
+    
+    <nav class="page-directory container">
+        <a href="index.html">Home</a> <span>/</span> Machine Learning Portfolio
+    </nav>
+
+    <div class="container">
+        <header class="project-header">
+            <p style="color: var(--color-green); letter-spacing: 2px;">Data Science & NLP</p>
+            <h1>Machine Learning & Data Preprocessing Works</h1>
+            <p>A compilation of academic exercises and projects demonstrating proficiency in NLP fundamentals, model implementation, and advanced techniques like BERT fine-tuning.</p>
+        </header>
+
+        <section>
+            <h2>Project Collection</h2>
+            <div class="project-card-list">
+
+                <div class="project-card">
+                    <div class="project-title-bar highlight" data-project="0">
+                        <h3>Hate Speech Detection in Philippine Elections (Taglish)</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-0">
+                        <h4>Description</h4>
+                        <p>
+                            This project focuses on building a smart computer program (AI) capable of detecting hate speech in social media posts about the Philippine elections. Because Filipinos frequently mix Tagalog and English (Taglish) and use specific political slang, standard international tools often fail to understand the meaning of these posts.
+                        </p>
+                        <p>
+                             To solve this, the researchers created a special dataset of 15,000 posts. We used a "hybrid" method: a computer automatically labeled the training data to save time, while humans carefully checked a separate "Golden Truth" set to ensure accuracy. We then trained a powerful AI model (based on Twitter data) to recognize local insults and harassment. The result is a tool that can reliably spot hate speech in the complex, multilingual context of Philippine politics.
+                        </p>
+                        
+                        <h4>Key Components</h4>
+                        <ul>
+                            <li><strong>Model Used:</strong> Fine-tuned Twitter-RoBERTa.</li>
+                            <li><strong>Core Task:</strong> Detection of hate speech (binary classification) within the domain of Philippine political discourse.</li>
+                            <li><strong>Impact:</strong> Achieved an accuracy of 0.80 on the test set with the lowest validation loss of 0.51.</li>
+                        </ul>
+
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li><strong>Solving the "Taglish" Problem:</strong> The main goal was to fix the blind spots of existing tools that cannot understand the mix of Tagalog, English, and local election slang used by Filipino netizens.</li>
+                            <li><strong>Smart Labeling Strategy:</strong> Instead of doing everything by hand, the study used a time-saving method where a computer "guessed" the labels for 10,000 training posts (using keywords and a zero-shot model), while humans manually labeled 5,000 posts to create a perfect "Golden Truth" test to grade the model.</li>
+                            <li><strong>High Performance:</strong> After "fine-tuning" (training) the model, it achieved a high success score (an F1-Score of roughly 0.80), meaning it correctly identified hate speech about 80% of the time.</li>
+                        </ul>
+                        
+                        <h4>View Documents and Code</h4>
+                        <div class="embed-buttons">
+                            <button class="embed-button-viewer" data-target="ieee-embed-0">View IEEE Document</button>
+                            <button class="embed-button-viewer" data-target="colab-embed-0">View Code (Notebook)</button>
+                        </div>
+                        
+                        <div id="ieee-embed-0" class="embed-viewer">
+                            <iframe src="https://drive.google.com/file/d/1qye-V-kv77IISGfIhr6B3BFabjY4qSA-/preview" frameborder="0"></iframe>
+                        </div>
+
+                        <div id="colab-embed-0" class="embed-viewer">
+                            <iframe src="documents/notebook_preview.html" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title-bar" data-project="1">
+                        <h3>Implementing and Evaluating NLP Models (SpaCy Tasks)</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-1">
+                        <h4>Description</h4>
+                        <p>
+                            The study explored four NLP tasks—text classification, sentiment analysis, part-of-speech (POS) tagging, and text summarization—using small datasets and lightweight models built with spaCy. Each task employed a different dataset, and models were trained with simple setups, balanced data splits and evaluated using metrics like accuracy, precision, recall, F1-score, and ROUGE.
+                        </p>
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li>There is a clear trade-off between model size, inference speed, and accuracy.</li>
+                            <li>The focus on simple setups demonstrated that careful planning can still yield decent outcomes with small-scale experiments.</li>
+                        </ul>
+
+                        <h4>View Documents</h4>
+                        <div class="embed-buttons">
+                            <button class="embed-button-viewer" data-target="ieee-embed-1">View IEEE Document</button>
+                        </div>
+                        
+                        <div id="ieee-embed-1" class="embed-viewer">
+                            <iframe src="https://drive.google.com/file/d/1IOpuP2pQNl2TUVFKs3UbuP_EI68pe2VC/preview" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title-bar" data-project="2">
+                        <h3>Building Bert-Based QnA System (Model Comparison)</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-2">
+                        <h4>Description</h4>
+                        <p>
+                            This study evaluated three pre-trained question-answering models—DistilBERT, BERT-Large, and RoBERTa—on a short news article about the repatriation of Filipino workers from Beirut. Using Hugging Face’s QA pipeline, the same article and manually created questions were applied to all models. Performance was measured in terms of Exact Match (EM) and inference time per query.
+                        </p>
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li>There is a clear trade-off between model size, inference speed, and accuracy. DistilBERT achieved the best balance: fastest inference and highest EM in this short-article scenario.</li>
+                            <li>Strict Exact Match evaluation can underestimate performance because semantically correct answers may differ in phrasing.</li>
+                        </ul>
+
+                        <h4>View Documents</h4>
+                        <div class="embed-buttons">
+                            <button class="embed-button-viewer" data-target="ieee-embed-2">View IEEE Document</button>
+                        </div>
+                        
+                        <div id="ieee-embed-2" class="embed-viewer">
+                            <iframe src="https://drive.google.com/file/d/1_Og53W_OPToSAXUTdS8JTICS8_g0Dqe1/preview" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title-bar" data-project="3">
+                        <h3>Model Finetuning (Hate Speech Retraining)</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="project-content" id="project-3">
+                        <h4>Description</h4>
+                        <p>
+                            This study tested if an AI model originally built to understand emotions could be quickly retrained to detect hate speech in tweets about the 2025 Philippine elections. Due to time and computer limits, a small, mixed-quality dataset (computer-labeled and human-checked) of 2,500 tweets was used. The goal was to see if this mix of data could train the model effectively despite the small size.
+                        </p>
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li>Reusing an "Emotion" Model: The study successfully adapted an existing "sentiment" model to find hate speech in Taglish tweets.</li>
+                            <li>Decent Accuracy but Low Reliability: While the model guessed correctly about 83% of the time, other scores (like the F1 score) showed it struggled to consistently find hate speech across different comments.</li>
+                        </ul>
+
+                        <h4>View Documents</h4>
+                        <div class="embed-buttons">
+                            <button class="embed-button-viewer" data-target="ieee-embed-3">View IEEE Document</button>
+                        </div>
+                        
+                        <div id="ieee-embed-3" class="embed-viewer">
+                            <iframe src="https://drive.google.com/file/d/1SmGcxjyRACQBmUbMdMPFQY51KO2WySny/preview" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pia Marina Medici.</p>
+            <p>
+                Connect: 
+                <a href="mailto:youremail@example.com">Email</a> | 
+                <a href="https://www.linkedin.com/in/pia-marina-medici-a86443399" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/piamarinamedici739-lgtm" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.project-title-bar');
+            const viewButtons = document.querySelectorAll('.embed-button-viewer');
+            
+            // --- 1. ACCORDION LOGIC ---
+            titles.forEach(title => {
+                title.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const content = document.getElementById(`project-${projectId}`);
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    // Close other open panels
+                    document.querySelectorAll('.project-content.active').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('active');
+                            const openIcon = openContent.previousElementSibling.querySelector('.toggle-icon');
+                            openIcon.textContent = '+';
+                            
+                            // Reset viewers inside closed panels
+                            openContent.querySelectorAll('.embed-viewer').forEach(v => v.style.display = 'none');
+                            openContent.querySelectorAll('.embed-button-viewer').forEach(b => b.classList.remove('active'));
+                        }
+                    });
+
+                    // Toggle clicked panel
+                    content.classList.toggle('active');
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '-';
+                        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Auto-open IEEE viewer if it's the main project
+                        if (projectId === '0') {
+                            const defaultButton = content.querySelector('.embed-button-viewer[data-target="ieee-embed-0"]');
+                            if (defaultButton) defaultButton.click();
+                        }
+                    } else {
+                        icon.textContent = '+';
+                    }
+                });
+            });
+            
+            // Open main project by default
+            const mainProjectTitle = document.querySelector('.project-title-bar.highlight');
+            if (mainProjectTitle) {
+                mainProjectTitle.click();
+            }
+
+            // --- 2. UNIVERSAL VIEWER LOGIC ---
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetViewer = document.getElementById(targetId);
+                    
+                    // Find the parent container
+                    const viewerContainer = this.closest('.project-content');
+                    if (!viewerContainer) return;
+
+                    const isCurrentlyActive = this.classList.contains('active');
+
+                    // 1. Reset ALL viewers and buttons within this specific project card
+                    viewerContainer.querySelectorAll('.embed-viewer').forEach(v => v.style.display = 'none');
+                    viewerContainer.querySelectorAll('.embed-button-viewer').forEach(b => b.classList.remove('active'));
+
+                    // 2. If it wasn't already active, open the requested one
+                    if (!isCurrentlyActive) {
+                        targetViewer.style.display = 'block';
+                        this.classList.add('active');
+                        targetViewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

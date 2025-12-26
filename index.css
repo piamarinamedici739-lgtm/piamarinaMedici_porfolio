@@ -1,0 +1,520 @@
+/* Color Variables */
+:root {
+    --color-black: #121212; /* Modern Matte Black */
+    --color-white: #f5f5f5; /* Off-White/Light Gray for text/background */
+    --color-green: #224233; /* Matte Forest Green Accent (Backgrounds/Borders) */
+    --color-green-light: #98fb98; /* NEW: Pale Green for text visibility on dark backgrounds */
+    --color-gray-dark: #333;
+    --color-gray-light: #aaa;
+}
+
+/* Base Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; margin-bottom: 20px; }
+h3 { font-size: 1.2em; }
+
+a {
+    color: var(--color-green-light); /* Updated to lighter green for better visibility */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-white);
+}
+
+/* ---------------------------------------------------- */
+/* LAYOUT AND NAVIGATION */
+/* ---------------------------------------------------- */
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* This centers all content within the main container divs */
+.container > div {
+    width: 100%;
+    text-align: center; 
+}
+
+header {
+    background-color: var(--color-black);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-gray-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav ul li a {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    color: var(--color-gray-light);
+}
+
+/* Interactive Underline Effect */
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-green-light);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--color-white);
+}
+
+nav ul li a:hover::after, nav ul li a.active::after {
+    width: 100%;
+}
+
+/* ---------------------------------------------------- */
+/* SECTION STYLES - CENTERED */
+/* ---------------------------------------------------- */
+
+section {
+    padding: 80px 0;
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally within the section */
+    background-color: var(--color-black);
+    width: 100%;
+}
+
+/* ---------------------------------------------------- */
+/* HERO ELEMENTS STYLES */
+/* ---------------------------------------------------- */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--color-green);
+    box-shadow: 0 0 15px rgba(34, 66, 51, 0.8);
+}
+
+/* Social Icons Styling */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    color: var(--color-green-light); /* Brand Color */
+    border: 2px solid var(--color-gray-dark);
+    transition: all 0.3s ease;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-icon:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border-color: var(--color-green);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(34, 66, 51, 0.4);
+}
+
+/* Welcome/Hero Section */
+#welcome {
+    text-align: center;
+    background-color: var(--color-black);
+    height: 100vh;
+}
+
+#welcome h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+#welcome p {
+    font-size: 1.5em;
+    color: var(--color-green-light);
+}
+
+/* ---------------------------------------------------- */
+/* ABOUT ME SECTION */
+/* ---------------------------------------------------- */
+#about-me p {
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    font-size: 1.1em;
+    text-align: justify; /* JUSTIFIED TEXT */
+}
+
+/* NEW: Skills Grid Styling */
+.skills-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.skills-wrapper h3 {
+    text-align: center;
+    color: var(--color-green-light);
+    margin-bottom: 15px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-item {
+    background-color: var(--color-gray-dark);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--color-green);
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background-color: var(--color-green);
+    transform: translateY(-2px);
+}
+
+/* NEW: Seminars List Styling */
+.seminars-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.seminars-wrapper h3 {
+    text-align: center;
+    color: var(--color-green-light);
+    margin-bottom: 15px;
+}
+
+.seminars-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.seminars-list li {
+    background-color: #1a1a1a;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-left: 3px solid var(--color-green);
+    font-size: 1em;
+}
+
+/* Extra space for Seeking Opportunities heading */
+#about-me h3 {
+    color: var(--color-green-light);
+    margin-top: 50px !important; 
+    margin-bottom: 15px; 
+    text-align: center;
+}
+
+/* Motto styling */
+#about-me .motto {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+    border: 1px dashed var(--color-green);
+    border-radius: 5px;
+    display: block;
+    font-size: 1.1em;
+    color: var(--color-gray-light);
+    font-style: italic; /* MOTTO IS ITALIC */
+}
+
+/* Initials styling */
+#about-me .motto strong {
+    font-style: normal; 
+    font-weight: bold;  
+    color: var(--color-white); 
+}
+
+/* ---------------------------------------------------- */
+/* PROJECT/WORKS SECTION */
+/* ---------------------------------------------------- */
+
+#works {
+    text-align: center;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: var(--color-gray-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Ensures the whole card feels clickable */
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(34, 66, 51, 0.6);
+}
+
+.card-image {
+    height: 200px;
+    background-color: var(--color-black);
+    border-bottom: 2px solid var(--color-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-white);
+    text-align: center;
+    padding: 10px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    color: var(--color-white); 
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* EDITING SHOWCASE */
+/* ---------------------------------------------------- */
+
+#editing {
+    text-align: center;
+}
+
+.pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pdf-card {
+    background-color: var(--color-gray-dark);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--color-gray-dark);
+    transition: border-color 0.3s ease;
+}
+
+.pdf-card:hover {
+    border-color: var(--color-green);
+}
+
+.pdf-card h3 {
+    margin-bottom: 15px;
+    color: var(--color-white);
+    font-size: 1em;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 600px; 
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.pdf-fallback {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+
+/* ---------------------------------------------------- */
+/* DOCUMENTS SECTION (Adjusted for Alignment & Visibility) */
+/* ---------------------------------------------------- */
+
+.document-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    align-items: stretch; /* Ensures boxes stretch to same height */
+}
+
+.document-box {
+    background-color: var(--color-gray-dark);
+    padding: 30px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    
+    /* Flexbox to organize internal content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+}
+
+.document-box:hover {
+    background-color: var(--color-green);
+    color: var(--color-white); 
+}
+
+/* TITLE ALIGNMENT FIX */
+.document-box h3 {
+    color: var(--color-green-light); /* Lighter green for visibility */
+    margin-bottom: 20px;
+    min-height: 3em; /* Equivalent to roughly 2 lines of text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* On hover, keep the title white or readable */
+.document-box:hover h3 {
+    color: var(--color-white);
+}
+
+.document-box p {
+    margin-bottom: 25px; /* Consistent spacing before button */
+    flex-grow: 1; /* Allows text to take space, keeping buttons aligned at bottom */
+}
+
+.document-box a {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--color-white);
+    border-radius: 5px;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    /* Prevent button from stretching full width if flex column is used */
+    align-self: center; 
+}
+
+.document-box:hover a {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+}
+
+/* ---------------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-gray-dark);
+    font-size: 0.9em;
+    color: var(--color-gray-light);
+}
+
+/* ---------------------------------------------------- */
+/* Page Directory / Breadcrumb Styling (Hidden on Index) */
+/* ---------------------------------------------------- */
+.page-directory {
+    padding: 10px 0;
+    background-color: var(--color-black);
+    border-bottom: 1px solid var(--color-gray-dark);
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.page-directory a {
+    color: var(--color-gray-light);
+}
+.page-directory a:hover {
+    color: var(--color-green-light);
+}
+.page-directory span {
+    color: var(--color-green-light);
+    margin: 0 5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 1.8em; }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .document-container, .pdf-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .document-box {
+        width: 90%;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Javascript Utility Class (for active navigation link) */
+.active {
+    color: var(--color-white) !important;
+}
